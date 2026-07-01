@@ -468,26 +468,26 @@ export default function WeddingInvitation() {
                   animate={{ opacity: 1, y: 0 }}
                   className="text-[10px] md:text-xs tracking-[0.6em] font-bold text-[#0369a1] drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]"
                 >
-                  විවාහ ආරාධනය
+                  අපේ මගුල් ගෙදර ඇවිත් යන්න එන්න
                 </motion.p>
 
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.15, duration: 0.8 }}
-                  className="mt-10"
+                  className="mt-8 md:mt-10 flex flex-row items-center justify-center gap-2 sm:gap-4 md:gap-5"
                 >
-                  <h1 className="text-6xl sm:text-7xl md:text-8xl text-[#0369a1] italic leading-none drop-shadow-[0_0_15px_rgba(255,255,255,0.9)]">
+                  <h1 className="text-[1.75rem] sm:text-6xl md:text-8xl text-[#0369a1] italic leading-none drop-shadow-[0_0_15px_rgba(255,255,255,0.9)] whitespace-nowrap">
                     {INVITATION.couple.bride}
                   </h1>
 
-                  <div className="mt-6 flex items-center justify-center gap-5">
-                    <div className="h-px w-14 bg-[#0369a1]/40" />
-                    <span className="text-4xl md:text-5xl text-[#0369a1] drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] font-bold">සහ</span>
-                    <div className="h-px w-14 bg-[#0369a1]/40" />
+                  <div className="flex items-center justify-center gap-1 sm:gap-5">
+                    <div className="hidden sm:block h-px w-8 md:w-14 bg-[#0369a1]/40" />
+                    <span className="text-xl sm:text-4xl md:text-5xl text-[#0369a1] drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] font-bold whitespace-nowrap">සහ</span>
+                    <div className="hidden sm:block h-px w-8 md:w-14 bg-[#0369a1]/40" />
                   </div>
 
-                  <h1 className="mt-6 text-6xl sm:text-7xl md:text-8xl text-[#0369a1] italic leading-none drop-shadow-[0_0_15px_rgba(255,255,255,0.9)]">
+                  <h1 className="text-[1.75rem] sm:text-6xl md:text-8xl text-[#0369a1] italic leading-none drop-shadow-[0_0_15px_rgba(255,255,255,0.9)] whitespace-nowrap">
                     {INVITATION.couple.groom}
                   </h1>
                 </motion.div>
@@ -496,7 +496,7 @@ export default function WeddingInvitation() {
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.35, duration: 0.8 }}
-                  className="mt-12 space-y-5"
+                  className="mt-64 sm:mt-72 md:mt-12 space-y-5"
                 >
                   <p className="text-sm sm:text-base md:text-xl tracking-[0.15em] sm:tracking-[0.25em] text-[#0369a1] font-bold drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">
                     {INVITATION.date.displayLong} · {INVITATION.time.start}
@@ -536,7 +536,11 @@ export default function WeddingInvitation() {
               id="details"
               className="relative pt-12 md:pt-20 pb-24 md:pb-32 w-full flex flex-col items-center overflow-hidden bg-white"
             >
-
+              <div
+                className="absolute inset-0 bg-center bg-cover"
+                style={{ backgroundImage: `url("${encodeURI(DETAILS_BACKGROUND_IMAGE)}")` }}
+                aria-hidden="true"
+              />
               <div className="absolute inset-4 md:inset-8 border-[1.5px] border-[#0369a1]/20 pointer-events-none z-10" />
               <div className="absolute inset-5 md:inset-10 border-[0.5px] border-[#38bdf8]/10 pointer-events-none z-10" />
 
@@ -611,9 +615,6 @@ export default function WeddingInvitation() {
 
                     <div className="space-y-5 mb-10">
                       <div className="flex flex-col items-center gap-2">
-                        <span className="text-[9px] tracking-[0.6em] font-bold text-[#0369a1]/50">
-                          වධූ
-                        </span>
                         <h3 className="text-5xl md:text-7xl text-[#0284c7] leading-none">
                           {INVITATION.couple.bride}
                         </h3>
@@ -631,9 +632,6 @@ export default function WeddingInvitation() {
 
                     <div className="space-y-5 mt-10">
                       <div className="flex flex-col items-center gap-2">
-                        <span className="text-[9px] tracking-[0.6em] font-bold text-[#0369a1]/50">
-                          වරයා
-                        </span>
                         <h3 className="text-5xl md:text-7xl text-[#0284c7] leading-none">
                           {INVITATION.couple.groom}
                         </h3>
@@ -646,7 +644,7 @@ export default function WeddingInvitation() {
                           <Calendar className="w-4 h-4 text-[#0284c7]" />
                         </div>
                         <div>
-                          <div className="text-[9px] tracking-[0.5em] font-bold text-[#0369a1]/40">
+                          <div className="text-[10px] md:text-xs tracking-[0.4em] font-bold text-white bg-[#0369a1] px-3 py-1 rounded-full inline-block mb-1 shadow-sm">
                             දිනය
                           </div>
                           <div className="text-sm md:text-base text-[#0369a1] tracking-wide font-bold">
@@ -662,7 +660,7 @@ export default function WeddingInvitation() {
                           <MapPin className="w-4 h-4 text-[#0369a1]" />
                         </div>
                         <div>
-                          <div className="text-[9px] tracking-[0.5em] font-bold text-[#0369a1]/40">
+                          <div className="text-[10px] md:text-xs tracking-[0.4em] font-bold text-white bg-[#0369a1] px-3 py-1 rounded-full inline-block mb-1 shadow-sm">
                             ස්ථානය
                           </div>
                           <div className="text-sm md:text-base text-[#0369a1] tracking-wide font-bold">
@@ -678,7 +676,11 @@ export default function WeddingInvitation() {
 
 
             <section className="relative py-28 md:py-48 overflow-hidden bg-white">
-
+              <div
+                className="absolute inset-0 bg-center bg-cover"
+                style={{ backgroundImage: `url("${encodeURI(TIMELINE_BACKGROUND_IMAGE)}")` }}
+                aria-hidden="true"
+              />
               <div className="container mx-auto px-6 max-w-5xl relative z-10 text-center">
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
@@ -714,7 +716,7 @@ export default function WeddingInvitation() {
                           <Clock className="w-4 h-4 text-[#0284c7]" />
                         </div>
                         <div>
-                          <div className="text-xs md:text-sm tracking-widest font-bold text-[#0369a1]/60">
+                          <div className="text-[10px] md:text-xs tracking-widest font-bold text-white bg-[#0369a1] px-3 py-1 rounded-full inline-block mb-1 shadow-sm">
                             {title}
                           </div>
                           <div className="text-base md:text-xl text-[#0369a1] tracking-widest font-bold mt-1">
