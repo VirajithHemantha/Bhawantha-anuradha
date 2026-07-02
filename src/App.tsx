@@ -195,6 +195,7 @@ export default function WeddingInvitation() {
   const searchParams = new URLSearchParams(window.location.search);
   const prefixParam = searchParams.get('prefix');
   const guestParam = searchParams.get('guest');
+  const suffixParam = searchParams.get('suffix') || 'ඔබට / ඔබ දෙපළට / ඔබ සැමට';
   const greetingName = guestParam ? `${prefixParam ? prefixParam + ' ' : ''}${guestParam}` : null;
 
   const [hasStarted, setHasStarted] = useState(false);
@@ -587,7 +588,7 @@ export default function WeddingInvitation() {
                       අතිනත ගැනීමේ ප්‍රීතිය නිමිත්තෙන් පැවැත්වෙන ප්‍රිය සම්භාෂණයට සහභාගී වන මෙන්
                       <br />
                       <span className="text-[#0284c7] font-bold text-base md:text-lg my-2 block">
-                        {greetingName ? `ආදරණීය ${greetingName}, ඔබට කෙරෙන ගෞරවණීය ඇරයූමයි!` : "ඔබට / ඔබ දෙපළට / ඔබ සැමට කෙරෙන ගෞරවණීය ඇරයූමයි!"}
+                        {greetingName ? `ආදරණීය ${greetingName}, ${suffixParam} කෙරෙන ගෞරවණීය ඇරයූමයි!` : `${suffixParam} කෙරෙන ගෞරවණීය ඇරයූමයි!`}
                       </span>
                     </p>
                   </div>

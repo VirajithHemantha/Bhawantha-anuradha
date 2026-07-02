@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 export default function Admin() {
   const [prefix, setPrefix] = useState('Mr.');
   const [guestName, setGuestName] = useState('');
+  const [suffix, setSuffix] = useState('ඔබට');
   const [copiedLink, setCopiedLink] = useState(false);
   const [copiedMessage, setCopiedMessage] = useState(false);
 
@@ -10,17 +11,18 @@ export default function Admin() {
   
   const generateLink = () => {
     if (!guestName.trim()) return '';
-    return `${baseUrl}/?prefix=${encodeURIComponent(prefix)}&guest=${encodeURIComponent(guestName.trim())}`;
+    return `${baseUrl}/?prefix=${encodeURIComponent(prefix)}&guest=${encodeURIComponent(guestName.trim())}&suffix=${encodeURIComponent(suffix)}`;
   };
 
   const generateMessage = () => {
     const link = generateLink();
     if (!link) return '';
-    return `ආදරණීය ${prefix} ${guestName.trim()} ❤️
+    const prefixStr = prefix ? `${prefix} ` : '';
+    return `ආදරණීය ${prefixStr}${guestName.trim()} ❤️
 
-අපගේ ජීවිතයේ ඉතා සුවිශේෂී හා සතුටුදායක දිනයක් වන අපගේ විවාහ මංගල්‍යයේ සතුට ඔබ සමඟ බෙදාගැනීමට ආදරයෙන් ආරාධනා කරමු. 💍✨
+අපගේ ජීවිතයේ ඉතා සුවිශේෂී හා සතුටුදායක දිනයක් වන අපගේ විවාහ මංගල්යයේ සතුට ${suffix} සමඟ බෙදාගැනීමට ආදරයෙන් ආරාධනා කරමු. 💍✨
 
-කරුණාකර පහත link එක හරහා අපගේ මංගල ආරාධනා පත්‍රය සහ උත්සවයට අදාල සියලු විස්තර නරඹන්න 🌐👇
+කරුණාකර පහත link එක හරහා අපගේ මංගල ආරාධනා පත්රය සහ උත්සවයට අදාල සියලු විස්තර නරඹන්න 🌐👇
 
 ${link}
 
@@ -47,12 +49,12 @@ ${link}
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 p-6 font-sans">
+    <div className="h-[100dvh] overflow-y-auto bg-slate-50 p-4 sm:p-6 font-sans">
       <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
         <h1 className="text-2xl font-bold text-slate-800 mb-6">Wedding Invitation Link Generator</h1>
         
         <div className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="col-span-1 space-y-2">
               <label className="text-sm font-semibold text-slate-600">Prefix</label>
               <select 
@@ -60,11 +62,11 @@ ${link}
                 onChange={(e) => setPrefix(e.target.value)}
                 className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
               >
+                <option value="">(None)</option>
                 <option value="Mr.">Mr.</option>
                 <option value="Mrs.">Mrs.</option>
                 <option value="Mr. & Mrs.">Mr. & Mrs.</option>
                 <option value="Family">Family</option>
-                <option value="Dear">Dear</option>
               </select>
             </div>
             
@@ -77,6 +79,19 @@ ${link}
                 placeholder="e.g. Sanjaya"
                 className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
               />
+            </div>
+
+            <div className="col-span-1 space-y-2">
+              <label className="text-sm font-semibold text-slate-600">Suffix</label>
+              <select 
+                value={suffix} 
+                onChange={(e) => setSuffix(e.target.value)}
+                className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+              >
+                <option value="ඔබට">ඔබට</option>
+                <option value="ඔබ දෙපළට">ඔබ දෙපළට</option>
+                <option value="ඔබ සැමට">ඔබ සැමට</option>
+              </select>
             </div>
           </div>
 
