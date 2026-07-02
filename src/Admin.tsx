@@ -8,7 +8,7 @@ export default function Admin() {
   const [copiedMessage, setCopiedMessage] = useState(false);
 
   const baseUrl = window.location.origin;
-  
+
   const generateLink = () => {
     if (!guestName.trim()) return '';
     return `${baseUrl}/?prefix=${encodeURIComponent(prefix)}&guest=${encodeURIComponent(guestName.trim())}&suffix=${encodeURIComponent(suffix)}`;
@@ -20,9 +20,9 @@ export default function Admin() {
     const prefixStr = prefix ? `${prefix} ` : '';
     return `ආදරණීය ${prefixStr}${guestName.trim()} ❤️
 
-අපගේ ජීවිතයේ ඉතා සුවිශේෂී හා සතුටුදායක දිනයක් වන අපගේ විවාහ මංගල්යයේ සතුට ${suffix} සමඟ බෙදාගැනීමට ආදරයෙන් ආරාධනා කරමු. 💍✨
+අපගේ ජීවිතයේ ඉතා සුවිශේෂී හා සතුටුදායක දිනයක් වන අපගේ විවාහ මංගල්‍යයේ සතුට ${suffix} සමඟ බෙදාගැනීමට ආදරයෙන් ආරාධනා කරමු. 💍✨
 
-කරුණාකර පහත link එක හරහා අපගේ මංගල ආරාධනා පත්රය සහ උත්සවයට අදාල සියලු විස්තර නරඹන්න 🌐👇
+කරුණාකර පහත link එක හරහා අපගේ මංගල ආරාධනා පත්‍රය සහ උත්සවයට අදාල සියලු විස්තර බලන්න 🌐👇
 
 ${link}
 
@@ -52,13 +52,13 @@ ${link}
     <div className="h-[100dvh] overflow-y-auto bg-slate-50 p-4 sm:p-6 font-sans">
       <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
         <h1 className="text-2xl font-bold text-slate-800 mb-6">Wedding Invitation Link Generator</h1>
-        
+
         <div className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="col-span-1 space-y-2">
               <label className="text-sm font-semibold text-slate-600">Prefix</label>
-              <select 
-                value={prefix} 
+              <select
+                value={prefix}
                 onChange={(e) => setPrefix(e.target.value)}
                 className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
               >
@@ -69,11 +69,11 @@ ${link}
                 <option value="Family">Family</option>
               </select>
             </div>
-            
+
             <div className="col-span-1 md:col-span-2 space-y-2">
               <label className="text-sm font-semibold text-slate-600">Guest Name</label>
-              <input 
-                type="text" 
+              <input
+                type="text"
                 value={guestName}
                 onChange={(e) => setGuestName(e.target.value)}
                 placeholder="e.g. Sanjaya"
@@ -83,8 +83,8 @@ ${link}
 
             <div className="col-span-1 space-y-2">
               <label className="text-sm font-semibold text-slate-600">Suffix</label>
-              <select 
-                value={suffix} 
+              <select
+                value={suffix}
                 onChange={(e) => setSuffix(e.target.value)}
                 className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
               >
@@ -112,14 +112,14 @@ ${link}
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-slate-100">
-            <button 
+            <button
               onClick={() => copyToClipboard(generateLink(), 'link')}
               disabled={!guestName.trim()}
               className="flex-1 bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 font-semibold py-3 px-4 rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               {copiedLink ? '✓ Copied Link' : 'Copy Link Only'}
             </button>
-            <button 
+            <button
               onClick={() => copyToClipboard(generateMessage(), 'message')}
               disabled={!guestName.trim()}
               className="flex-1 bg-[#0369a1] text-white hover:bg-[#0284c7] font-semibold py-3 px-4 rounded-xl transition-all shadow-sm shadow-[#0369a1]/20 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
